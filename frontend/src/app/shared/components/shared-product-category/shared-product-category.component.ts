@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-product-category',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shared-product-category.component.css']
 })
 export class SharedProductCategoryComponent {
+
+  @Input() title?: string;
 
 }

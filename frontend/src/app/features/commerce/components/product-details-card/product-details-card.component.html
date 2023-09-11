@@ -1,22 +1,15 @@
 <div class="dsc-card dsc-mb20">
   <div class="dsc-product-details-top dsc-line-bottom">
-    <img ngSrc="../assets/images/pc.png" width="220" height="219" alt="Computador" />
+    <img ngSrc="{{ product.imgUrl }}" width="220" height="219" alt="{{ product.name }}"/>
   </div>
   <div class="dsc-product-details-bottom">
-    <h3>R$ 5000,00</h3>
-    <h4>Computador Gamer XT</h4>
+    <h3>R$ {{ product.price }}</h3>
+    <h4>{{ product.name }}</h4>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-      enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.
+      {{ product.description }}
     </p>
     <div class="dsc-category-container">
-      <shared-product-category />
-      <shared-product-category />
+      <shared-product-category *ngFor="let prod of product.categories" [title]="prod.name"/>
     </div>
   </div>
 </div>
