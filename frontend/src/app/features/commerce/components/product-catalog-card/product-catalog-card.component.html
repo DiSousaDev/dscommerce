@@ -1,11 +1,13 @@
 <div class="dsc-card">
-  <div class="dsc-catalog-card-top dsc-line-bottom">
-    <img ngSrc="{{ product.imgUrl }}" width="220" height="219" alt="{{ product.name }}" />
-  </div>
-  <div class="dsc-catalog-card-bottom">
-    <h3>R$ {{ product.price }}</h3>
-    <h4>
-      {{ product.name }}
-    </h4>
-  </div>
+  <a [routerLink]="['/products/details', product.id]" href="#">
+    <div class="dsc-catalog-card-top dsc-line-bottom">
+      <img ngSrc="{{ product.imgUrl }}" width="220" height="219" alt="{{ product.name }}"/>
+    </div>
+    <div class="dsc-catalog-card-bottom">
+      <h3>R$ {{ product.price }}</h3>
+      <h4>
+        {{ product.name }}
+      </h4>
+    </div>
+  </a>
 </div>
