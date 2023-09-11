@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-button-inverse',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shared-button-inverse.component.css']
 })
 export class SharedButtonInverseComponent {
+
+  @Input({ required: true }) title?: string;
 
 }

@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SharedProductCategoryComponent {
 
-  @Input() title?: string;
+  @Input({ required: true }) title?: string;
 
 }

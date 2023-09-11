@@ -8,7 +8,7 @@ import { Product } from "../../../../core/models/product.model";
 })
 export class ProductDetailsCardComponent {
 
-  @Input() product!: Product;
+  @Input({ required: true }) product!: Product;
 
   teste1 = "teste1";
   teste2 = "teste2";

@@ -8,6 +8,9 @@ import { Product } from "../../../../core/models/product.model";
 })
 export class ProductDetailsComponent {
 
+  btnComprar = "Comprar";
+  btnInicio = "Início";
+
   product: Product = {
     id: 1,
     name: "Smart Tv",
@@ -28,7 +31,6 @@ export class ProductDetailsComponent {
         name: "Importados"
       }
     ]
-
   }
 
 }

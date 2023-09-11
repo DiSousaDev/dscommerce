@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-button-primary',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shared-button-primary.component.css']
 })
 export class SharedButtonPrimaryComponent {
+
+  @Input({ required: true }) title?: string;
 
 }

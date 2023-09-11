@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from "../../../../core/models/product.model";
 
 @Component({
   selector: 'product-catalog-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-catalog-card.component.css']
 })
 export class ProductCatalogCardComponent {
+
+  @Input({ required: true }) product!:Product;
 
 }
