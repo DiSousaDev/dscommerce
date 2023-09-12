@@ -14,6 +14,8 @@ import { ProductCatalogComponent } from './features/commerce/pages/product-catal
 import { SharedSearchBarComponent } from './shared/components/shared-search-bar/shared-search-bar.component';
 import { ProductCatalogCardComponent } from './features/commerce/components/product-catalog-card/product-catalog-card.component';
 import { SharedButtonLoadMoreComponent } from './shared/components/shared-button-load-more/shared-button-load-more.component';
+import { LoginComponent } from './features/auth/pages/login/login.component';
+import { ProductCartComponent } from './features/commerce/pages/product-cart/product-cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SharedButtonLoadMoreComponent } from './shared/components/shared-button
     ProductCatalogComponent,
     SharedSearchBarComponent,
     ProductCatalogCardComponent,
-    SharedButtonLoadMoreComponent
+    SharedButtonLoadMoreComponent,
+    LoginComponent,
+    ProductCartComponent,
   ],
     imports: [
         BrowserModule,

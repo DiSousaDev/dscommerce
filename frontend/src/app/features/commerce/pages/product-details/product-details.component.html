@@ -1,9 +1,11 @@
 <main>
   <section id="product-details-section" class="dsc-container">
-    <product-details-card [product]="product" />
+    <product-details-card [product]="product"/>
     <div class="dsc-btn-page-container">
       <shared-button-primary [title]="btnComprar"/>
-      <shared-button-inverse [title]="btnInicio" />
+      <a [routerLink]="['/']" href="#">
+        <shared-button-inverse [title]="btnInicio"/>
+      </a>
     </div>
   </section>
 </main>

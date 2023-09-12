@@ -6,10 +6,12 @@
     <div class="dsc-navbar-right">
       <div class="dsc-menu-items-container">
         <div class="dsc-menu-item">
-          <img ngSrc="assets/images/cart.svg" width="19" height="19" alt="Carrinho de compras"/>
+          <a [routerLink]="['/cart']" href="#">
+            <img ngSrc="assets/images/cart.svg" width="19" height="19" alt="Carrinho de compras"/>
+          </a>
         </div>
       </div>
-      <a href="#">Entrar</a>
+      <a [routerLink]="['/login']" href="#">Entrar</a>
     </div>
   </nav>
 </header>
