@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from "../../../../core/models/product.model";
 import { ProductCatalogService } from "../../../services/product-catalog.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'product-details',
@@ -18,6 +18,7 @@ export class ProductDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductCatalogService
   ) {
   }
@@ -26,11 +27,12 @@ export class ProductDetailsComponent {
     // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     let id = this.route.snapshot.params['id'];
     const res = this.productService.findById(id);
-    if (res !== undefined)
+    if (res !== undefined) {
       this.product = res;
-    else
-      throw new Error("Produto não encontrado: id = " + id);
-
+    } else {
+      console.error("Produto não encontrado: id = " + id);
+      this.router.navigate(['/products/catalog'])
+    }
     this.products = this.productService.findAll();
   }
 

@@ -8,7 +8,7 @@ import { ProductCartComponent } from "./features/commerce/pages/product-cart/pro
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'products/catalog',
+    redirectTo: '/products/catalog',
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: ProductCartComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/products/catalog',
   }
 ];
 
