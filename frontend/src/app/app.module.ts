@@ -16,6 +16,7 @@ import { ProductCatalogCardComponent } from './features/commerce/components/prod
 import { SharedButtonLoadMoreComponent } from './shared/components/shared-button-load-more/shared-button-load-more.component';
 import { LoginComponent } from './features/auth/pages/login/login.component';
 import { ProductCartComponent } from './features/commerce/pages/product-cart/product-cart.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProductCartComponent } from './features/commerce/pages/product-cart/pro
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

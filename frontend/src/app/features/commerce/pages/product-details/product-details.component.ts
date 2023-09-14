@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from "../../../../core/models/product.model";
 import { ProductCatalogService } from "../../../services/product-catalog.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
+import { ProductDto } from "../../../../core/models/product-dto.model";
 
 @Component({
   selector: 'product-details',
@@ -14,11 +15,10 @@ export class ProductDetailsComponent {
   btnInicio = "Início";
 
   product!: Product;
-  products: Product[] = [];
+  products: ProductDto[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private productService: ProductCatalogService
   ) {
   }
@@ -26,14 +26,8 @@ export class ProductDetailsComponent {
   ngOnInit(): void {
     // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     let id = this.route.snapshot.params['id'];
-    const res = this.productService.findById(id);
-    if (res !== undefined) {
-      this.product = res;
-    } else {
-      console.error("Produto não encontrado: id = " + id);
-      this.router.navigate(['/products/catalog'])
-    }
-    this.products = this.productService.findAll();
+   this.productService.findById(id).subscribe(prod => this.product = prod);
+   this.productService.findAll().subscribe(resp => this.products = resp.content);
   }
 
 }

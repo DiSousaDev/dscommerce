@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from "../../../../core/models/product.model";
+import { ProductDto } from "../../../../core/models/product-dto.model";
 
 @Component({
   selector: 'product-catalog-card',
@@ -8,6 +8,6 @@ import { Product } from "../../../../core/models/product.model";
 })
 export class ProductCatalogCardComponent {
 
-  @Input({ required: true }) product!:Product;
+  @Input({required: true}) product!: ProductDto;
 
 }

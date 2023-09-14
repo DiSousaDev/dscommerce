@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from "../../../../core/models/product.model";
 import { ProductCatalogService } from "../../../services/product-catalog.service";
+import { ProductDto } from "../../../../core/models/product-dto.model";
 
 @Component({
   selector: 'product-catalog',
@@ -9,7 +9,7 @@ import { ProductCatalogService } from "../../../services/product-catalog.service
 })
 export class ProductCatalogComponent implements OnInit {
 
-  products: Product[] = [];
+  products: ProductDto[] = [];
 
   constructor(
     private productService: ProductCatalogService
@@ -17,11 +17,11 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.listarTodos();
+    this.listarTodos();
   }
 
-  listarTodos(): Product[] {
-    return this.productService.findAll();
+  listarTodos() {
+   this.productService.findAll().subscribe(resp => this.products = resp.content);
   }
 
 }

@@ -10,6 +10,4 @@ export class ProductDetailsCardComponent {
 
   @Input({ required: true }) product!: Product;
 
-  teste1 = "teste1";
-  teste2 = "teste2";
 }
