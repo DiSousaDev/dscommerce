@@ -1,1 +1,16 @@
-<p>product-cart works!</p>
+<main>
+  <section id="cart-container-section" class="dsc-container">
+    <div class="dsc-card dsc-mb20">
+      <product-cart-card *ngFor="let item of itens" [item]="item" />
+      <div class="dsc-cart-total-container">
+        <h3>R$ 15000,00</h3>
+      </div>
+    </div>
+    <div class="dsc-btn-page-container">
+      <shared-button-primary [title]="btnFinalizar"/>
+      <a [routerLink]="['/']" href="#">
+        <shared-button-inverse [title]="btnContinuar"/>
+      </a>
+    </div>
+  </section>
+</main>
