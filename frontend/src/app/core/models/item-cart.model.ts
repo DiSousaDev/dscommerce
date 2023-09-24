@@ -9,4 +9,8 @@ export class ItemCart {
   ) {
   }
 
+  get subTotal(): number {
+    return this.price * this.quantity;
+  }
+
 }

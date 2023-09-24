@@ -1,7 +1,7 @@
 <main>
   <section id="cart-container-section" class="dsc-container">
     <div class="dsc-card dsc-mb20">
-      <product-cart-card *ngFor="let item of itens" [item]="item" />
+      <product-cart-card *ngFor="let item of order.items" [item]="item" />
       <div class="dsc-cart-total-container">
         <h3>R$ 15000,00</h3>
       </div>

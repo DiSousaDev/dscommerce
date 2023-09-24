@@ -1,24 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemCart } from "../../../../core/models/item-cart.model";
+import { Order } from "../../../../core/models/order.model";
+import { OrderService } from "../../../services/order.service";
 
-const cart = {
-  items: [
-    {
-      productId: 4,
-      quantity: 1,
-      name: "PC Gamer",
-      price: 1200,
-      imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/4-big.jpg"
-    },
-    {
-      productId: 5,
-      quantity: 2,
-      name: "Rails for Dummies",
-      price: 100.99,
-      imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/5-big.jpg"
-    }
-  ]
-}
+const item1 = new ItemCart(4,1,"PC Gamer", 1200, "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/4-big.jpg");
+const item2 = new ItemCart(5,2, "Rails for Dummies", 100.99, "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/5-big.jpg");
 
 @Component({
   selector: 'app-product-cart',
@@ -28,12 +14,33 @@ const cart = {
 export class ProductCartComponent implements OnInit {
 
   itens: ItemCart[] = [];
+  order: Order = new Order();
 
   btnFinalizar = "Finalizar pedido";
   btnContinuar = "Continuar comprando";
 
+  constructor(
+    private orderService: OrderService
+  ) {
+  }
+
   ngOnInit(): void {
-    this.itens = cart.items;
+    this.order = this.getCart();
+    // this.saveCart(this.order);
+  }
+
+  saveCart(cart: Order) {
+    this.itens.push(item1);
+    this.itens.push(item2);
+    this.order.id = 1;
+    this.order.items = this.itens;
+    this.orderService.save(cart);
+  }
+
+  getCart() : Order {
+    let order = this.orderService.get();
+    console.log("ORDER>>>>>", order)
+    return order;
   }
 
 }
