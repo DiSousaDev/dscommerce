@@ -1,7 +1,7 @@
 <main>
   <section *ngIf="product" id="product-details-section" class="dsc-container">
     <product-details-card [product]="product"/>
-    <div class="dsc-btn-page-container">
+    <div class="dsc-btn-page-container" (click)="handleBuyClick(product)">
       <shared-button-primary [title]="btnComprar"/>
       <a [routerLink]="['/']" href="#">
         <shared-button-inverse [title]="btnInicio"/>

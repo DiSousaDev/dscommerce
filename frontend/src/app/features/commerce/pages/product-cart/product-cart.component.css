@@ -12,6 +12,12 @@
   color: var(--dsc-color-font-secondary);
 }
 
+.dsc-cart-total-container h4 {
+  font-size: 16px;
+  color: var(--dsc-color-font-primary);
+
+}
+
 @media (min-width: 576px) {
   .dsc-cart-total-container h3 {
     text-align: right;
