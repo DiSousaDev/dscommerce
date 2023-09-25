@@ -11,6 +11,9 @@
       <a [routerLink]="['/']" href="#">
         <shared-button-inverse [title]="btnContinuar"/>
       </a>
+      <a href="/cart" (click)="clearCart()">
+        <shared-button-inverse [title]="btnLimpar"/>
+      </a>
     </div>
   </section>
 

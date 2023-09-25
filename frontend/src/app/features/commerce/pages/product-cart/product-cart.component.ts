@@ -18,6 +18,7 @@ export class ProductCartComponent implements OnInit {
 
   btnFinalizar = "Finalizar pedido";
   btnContinuar = "Continuar comprando";
+  btnLimpar = "Limpar carrinho";
 
   constructor(
     private orderService: OrderService
@@ -42,5 +43,10 @@ export class ProductCartComponent implements OnInit {
     console.log("ORDER>>>>>", order)
     return order;
   }
+
+  clearCart() {
+    this.orderService.clear();
+  }
+
 
 }

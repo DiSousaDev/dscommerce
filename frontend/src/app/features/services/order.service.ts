@@ -25,4 +25,8 @@ export class OrderService {
     return cart;
   }
 
+  clear() {
+    localStorage.setItem(environment.cartKey, '{"items":[]}');
+  }
+
 }
