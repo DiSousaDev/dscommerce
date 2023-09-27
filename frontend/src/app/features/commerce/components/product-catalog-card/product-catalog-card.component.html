@@ -4,7 +4,7 @@
       <img ngSrc="{{ product.imgUrl }}" width="220" height="219" alt="{{ product.name }}"/>
     </div>
     <div class="dsc-catalog-card-bottom">
-      <h3>R$ {{ product.price }}</h3>
+      <h3>R$ {{ product.price.toFixed(2) }}</h3>
       <h4>
         {{ product.name }}
       </h4>

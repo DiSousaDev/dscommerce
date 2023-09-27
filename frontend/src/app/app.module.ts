@@ -17,7 +17,6 @@ import { SharedButtonLoadMoreComponent } from './shared/components/shared-button
 import { LoginComponent } from './features/auth/pages/login/login.component';
 import { ProductCartComponent } from './features/commerce/pages/product-cart/product-cart.component';
 import { HttpClientModule } from "@angular/common/http";
-import { ProductCartCardComponent } from './features/commerce/components/product-cart-card/product-cart-card.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { ProductCartCardComponent } from './features/commerce/components/product
     ProductCatalogCardComponent,
     SharedButtonLoadMoreComponent,
     LoginComponent,
-    ProductCartComponent,
-    ProductCartCardComponent,
+    ProductCartComponent
   ],
     imports: [
         BrowserModule,

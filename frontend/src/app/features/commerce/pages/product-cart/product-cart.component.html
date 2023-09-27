@@ -1,7 +1,22 @@
 <main>
   <section id="cart-container-section" class="dsc-container">
     <div class="dsc-card dsc-mb20">
-      <product-cart-card *ngFor="let item of order.items" [item]="item" />
+      <div class="dsc-cart-item-container dsc-line-bottom" *ngFor="let item of order.items">
+        <div class="dsc-cart-item-left">
+          <img ngSrc="{{ item.imgUrl }}" width="512" height="510" alt="{{ item.name }}" />
+          <div class="dsc-cart-item-description">
+            <h3>{{ item.name }}</h3>
+            <div class="dsc-cart-item-quantity-container">
+              <div class="dsc-cart-item-quantity-btn" (click)="decreaseItem(item.productId)">-</div>
+              <p>{{ item.quantity }}</p>
+              <div class="dsc-cart-item-quantity-btn" (click)="increaseItem(item.productId)">+</div>
+            </div>
+          </div>
+        </div>
+        <div class="dsc-cart-item-right">
+          R$ {{ item.subTotal.toFixed(2) }}
+        </div>
+      </div>
       <div *ngIf="order.items.length !== 0; else emptyCart" class="dsc-cart-total-container">
         <h3>R$ {{ order.total.toFixed(2) }}</h3>
       </div>
