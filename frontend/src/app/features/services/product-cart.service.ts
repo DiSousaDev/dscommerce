@@ -50,8 +50,11 @@ export class ProductCartService {
   decreaseItem(id: number) {
     const order = this.orderService.get();
     const item = order.items.find(x => x.productId === id);
-    if(item && item.quantity > 1) {
+    if(item) {
       item.quantity--;
+      if(item.quantity < 1) {
+       order.items = order.items.filter(x => x.productId !== id);
+      }
       this.orderService.save(order);
     }
   }
