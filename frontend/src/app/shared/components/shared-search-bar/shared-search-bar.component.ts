@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-search-bar',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SharedSearchBarComponent {
 
+  @Output() itemSearch = new EventEmitter<string>();
+
+  findProducts(event: any, value: string) {
+    event.preventDefault();
+    this.itemSearch.emit(value);
+  }
 }

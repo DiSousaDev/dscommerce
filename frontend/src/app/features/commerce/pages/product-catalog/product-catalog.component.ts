@@ -17,11 +17,15 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listarTodos();
+    this.listarTodos('');
   }
 
-  listarTodos() {
-   this.productService.findAll().subscribe(resp => this.products = resp.content);
+  listarTodos(product: string) {
+   this.productService.findAll(12, 0, 'name', product).subscribe(resp => this.products = resp.content);
+  }
+
+  findProduct(product: string) {
+    this.listarTodos(product);
   }
 
 }

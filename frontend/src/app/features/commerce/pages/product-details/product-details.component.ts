@@ -30,7 +30,7 @@ export class ProductDetailsComponent {
     // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     let id = this.route.snapshot.params['id'];
     this.productService.findById(id).subscribe(prod => this.product = prod);
-    this.productService.findAll().subscribe(resp => this.products = resp.content);
+    this.productService.findAll(12, 0, 'name', '').subscribe(resp => this.products = resp.content);
   }
 
   handleBuyClick(product: Product): void {

@@ -1,6 +1,6 @@
 <main>
   <section id="catalog-section" class="dsc-container">
-    <shared-search-bar />
+    <shared-search-bar (itemSearch)="findProduct($event)" />
 
     <div class="dsc-catalog-cards dsc-mb20 dsc-mt20">
       <product-catalog-card *ngFor="let product of products"  [product]="product" />
