@@ -13,4 +13,9 @@ export class SharedSearchBarComponent {
     event.preventDefault();
     this.itemSearch.emit(value);
   }
+
+  clearInput() {
+    this.itemSearch.emit('');
+  }
+
 }

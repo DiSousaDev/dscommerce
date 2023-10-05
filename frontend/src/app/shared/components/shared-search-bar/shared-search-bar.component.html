@@ -1,5 +1,5 @@
 <form class="dsc-search-bar">
   <button type="submit" (click)="findProducts($event, productSearch.value)">🔎︎</button>
   <input name="buscar" type="text" placeholder="Nome do produto" #productSearch />
-  <button type="reset">X</button>
+  <button type="reset" (click)="clearInput()">X</button>
 </form>

@@ -26,6 +26,7 @@
 }
 
 .dsc-search-bar button {
+  cursor: pointer;
   width: 40px;
   color: var(--dsc-color-font-primary);
 }
