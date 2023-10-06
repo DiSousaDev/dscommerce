@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 import { catchError, EMPTY, Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { PageRequest } from "../../core/models/page-request.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,18 @@ export class ProductCatalogService {
   ) {
   }
 
-  findAll(size: number, page: number, sort: string, valueSearch: string) {
+  findAll(size: number, page: number, sort: string, valueSearch: string):Observable<any> {
+    const options = {
+      params: new HttpParams()
+        .set('size', size)
+        .set('page', page)
+        .set('sort', sort)
+        .set('name', valueSearch)
+    };
+    return this.httpClient.get<any>(this.url, options);
+  }
+
+  findAllpaged(size: number, page: number, sort: string, valueSearch: string):Observable<PageRequest> {
     const options = {
       params: new HttpParams()
         .set('size', size)
