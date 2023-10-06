@@ -10,6 +10,7 @@ import { PageRequest } from "../../../../core/models/page-request.model";
 })
 export class ProductCatalogComponent implements OnInit {
 
+  productName: string = '';
   pageProducts: PageRequest | undefined;
   products: ProductDto[] = [];
 
@@ -19,7 +20,7 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listarTodos(12, 0, '');
+    this.listarTodos(12, 0, this.productName);
   }
 
   listarTodos(size: number, page: number, product: string) {
@@ -30,11 +31,12 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   findProduct(product: string) {
-    this.listarTodos(12, 0, product);
+    this.productName = product;
+    this.listarTodos(12, 0, this.productName);
   }
 
   loadMore(page: number) {
-    this.productService.findAllpaged(12, ++page, 'name', '').subscribe(resp => {
+    this.productService.findAllpaged(12, ++page, 'name', this.productName).subscribe(resp => {
       this.pageProducts = resp;
       this.products.push(...resp.content);
     });
